@@ -3,6 +3,11 @@
   "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
+  "homepage": "https://github.com/ahaoboy/webp-converter-webpack-plugin",
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/ahaoboy/webp-converter-webpack-plugin"
+	},
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
   },
