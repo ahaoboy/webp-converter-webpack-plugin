@@ -13,7 +13,7 @@ class WebpPlugin {
     log = true,
     changeName = false,
   }) {
-    this.quality = quality < 1 ? quality * 100 : quality;
+    this.quality = quality <= 1 ? quality * 100 : quality;
     this.enabled = enabled;
     this.log = log;
     this.changeName = changeName;
@@ -21,7 +21,10 @@ class WebpPlugin {
 
   apply(compiler) {
     compiler.hooks.emit.tapAsync("WebpPlugin", async (compilation, cb) => {
-      if (!this.enabled) return;
+      if (!this.enabled) {
+        cb();
+        return;
+      }
       const images = Object.keys(compilation.assets).filter(isImage);
       const list = [];
       const logInfo = {};
@@ -55,7 +58,7 @@ class WebpPlugin {
           console.log(
             `${k}\t raw:${(raw / 1024).toFixed(2)}k\twebp:${(
               webp / 1024
-            ).toFixed(2)}k\tratio:${(webp/raw*100).toFixed(2)}%`
+            ).toFixed(2)}k\tratio:${((webp / raw) * 100).toFixed(2)}%`
           );
         }
       }
