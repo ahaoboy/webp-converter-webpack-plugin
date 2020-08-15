@@ -1,0 +1,26 @@
+{
+  "name": "webp-converter-webpack-plugin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org"
+  },
+  "keywords": [
+    "webpack",
+    "webp"
+  ],
+  "author": "ahaoboy <504595380@qq.com>",
+  "dependencies": {
+    "webp-converter": "^2.3.0",
+    "webpack-sources": "^1.4.3"
+  },
+  "peerDependencies": {
+    "webpack": ">= 4.0.0",
+    "webpack-cli": ">= 3.0.0"
+  },
+  "engines": {
+    "node": ">= 10.0.0",
+    "npm": ">= 5.6.0"
+  }
+}
