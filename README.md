@@ -30,7 +30,7 @@ const WebpPlugin = require("webp-converter-webpack-plugin");
 | enabled    | true                         | enable this plugin                                                                                                          |
 | log        | true                         | show compress info log                                                                                                      |
 | limit      | 1024 \* 32                   | Images size bigger than 32K will be compressed, default 32k                                                                              |
-| imageReg   | ```/\.(png|jpg|jpeg|webp)\$/i``` | image name regular expression                                                                                               |
+| imageReg   |  /\.(png&#124;jpg&#124;jpeg&#124;webp)\$/i  | image name regular expression                                                                                               |
 
 ## notice
 
