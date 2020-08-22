@@ -23,14 +23,14 @@ const WebpPlugin = require("webp-converter-webpack-plugin");
 
 ```
 
-| name       | default                      | desc                                                                                                                        |
-| ---------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| quality    | 0.8                          | quality of webp, 0~1 or 0~100                                                                                               |
-| changeName | false                        | change fileName [name].jpg to [name].webp. **if you want to change ouput filenname you also need change url-loader config** |
-| enabled    | true                         | enable this plugin                                                                                                          |
-| log        | true                         | show compress info log                                                                                                      |
-| limit      | 1024 \* 32                   | Images size bigger than 32K will be compressed, default 32k                                                                              |
-| imageReg   |  /\.(png&#124;jpg&#124;jpeg&#124;webp)\$/i  | image name regular expression                                                                                               |
+| name       | <div style="width:150px">名称</div>       | desc                                                                              |
+| ---------- | ----------------------------------------- | --------------------------------------------------------------------------------- |
+| quality    | 0.8                                       | quality of webp, 0~1 or 0~100                                                     |
+| changeName | false                                     | change fileName [name].jpg to [name].webp. <br> **need change url-loader config** |
+| enabled    | true                                      | enable this plugin                                                                |
+| log        | true                                      | show compress info log                                                            |
+| limit      | 1024 \* 32                                | Images size bigger than 32K will be compressed, default 32k                       |
+| imageReg   | /\.(png&#124;jpg&#124;jpeg&#124;webp)\$/i | image name regular expression                                                     |
 
 ## notice
 
