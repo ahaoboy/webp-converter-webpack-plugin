@@ -16,17 +16,21 @@ const WebpPlugin = require("webp-converter-webpack-plugin");
       changeName: false,
       enabled: true,
       log: true,
+      limit: 1024 * 32,
+      imageReg: /\.(png|jpg|jpeg|webp)$/i
     }),
   ],
 
 ```
 
-| name       | default | desc                                                                                                                        |
-| ---------- | ------- | --------------------------------------------------------------------------------------------------------------------------- |
-| quality    | 0.8     | quality of webp, 0~1 or 0~100                                                                                               |
-| changeName | false   | change fileName [name].jpg to [name].webp. **if you want to change ouput filenname you also need change url-loader config** |
-| enabled    | true    | enable this plugin                                                                                                          |
-| log        | true    | show compress info log                                                                                                      |
+| name       | default                      | desc                                                                                                                        |
+| ---------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| quality    | 0.8                          | quality of webp, 0~1 or 0~100                                                                                               |
+| changeName | false                        | change fileName [name].jpg to [name].webp. **if you want to change ouput filenname you also need change url-loader config** |
+| enabled    | true                         | enable this plugin                                                                                                          |
+| log        | true                         | show compress info log                                                                                                      |
+| limit      | 1024 \* 32                   | Images size bigger than 32K will be compressed, default 32k                                                                              |
+| imageReg   | `/\.(png|jpg|jpeg|webp)\$/i` | image name regular expression                                                                                               |
 
 ## notice
 

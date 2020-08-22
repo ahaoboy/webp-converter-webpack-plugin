@@ -1,8 +1,7 @@
 const webp = require("webp-converter");
 const { RawSource } = require("webpack-sources");
-
-const isImage = (name = "") => {
-  const reg = /\.(png|jpg|jpeg|ico|webp)$/i;
+const IMAGE_REG = /\.(png|jpg|jpeg|webp)$/i;
+const isImage = (name = "", reg = IMAGE_REG) => {
   return reg.test(name);
 };
 
@@ -12,11 +11,14 @@ class WebpPlugin {
     enabled = true,
     log = true,
     changeName = false,
+    limit = 1024 * 32,
   }) {
     this.quality = quality <= 1 ? quality * 100 : quality;
     this.enabled = enabled;
     this.log = log;
     this.changeName = changeName;
+    this.limit = limit;
+    this.imageReg = IMAGE_REG;
   }
 
   apply(compiler) {
@@ -25,11 +27,16 @@ class WebpPlugin {
         cb();
         return;
       }
-      const images = Object.keys(compilation.assets).filter(isImage);
+      const images = Object.keys(compilation.assets).filter((name) =>
+        isImage(name, this.imageReg)
+      );
       const list = [];
       const logInfo = {};
       for (let i of images) {
         const raw = compilation.assets[i]._value;
+        if (raw.length < this.limit) {
+          continue;
+        }
         logInfo[i] = {
           raw: raw.length,
         };
